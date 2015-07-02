@@ -34,6 +34,10 @@
             templateUrl: 'app/components/userSettings/template.html',
             controller: 'SettingsController'
         })
+        .when('/profile', {
+            templateUrl: 'app/components/profile/profile.html',
+            controller: 'profileController'
+        })
         .otherwise({redirectTo: '/'});
 
     });
