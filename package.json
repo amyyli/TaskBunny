@@ -29,6 +29,10 @@
     "underscore": "^1.8.3"
   },
   "devDependencies": {
-    "grunt-nodemon": "^0.4.0"
+    "chai": "^3.0.0",
+    "grunt-nodemon": "^0.4.0",
+    "karma": "^0.12.37",
+    "mocha": "^2.2.5",
+    "sinon": "^1.15.4"
   }
 }
