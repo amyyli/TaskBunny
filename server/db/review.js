@@ -2,12 +2,12 @@ var mongoose = require('mongoose');
 
 var ReviewSchema = new mongoose.Schema({
   // user id of user being reviewed
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  taskRunner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 
   // user id of reviewer
-  reviewer: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  taskOwner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 
-  // task reviewer completed
+  // specific task completed
   task: { type: mongoose.Schema.Types.ObjectId, ref: 'Task' },
 
   // rating: # of carrots out of 5
@@ -17,7 +17,7 @@ var ReviewSchema = new mongoose.Schema({
   reviewBody: String,
 
   // date of review
-  date: Date,
+  current_date: Date
 
 });
 
