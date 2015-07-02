@@ -3,6 +3,15 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/server/*.js']
+      }
+    },
+
     concurrent: {
       dev: {
         tasks: ['nodemon:dev', 'watch'],
@@ -52,6 +61,7 @@ module.exports = function(grunt) {
 
   });
 
+  grunt.loadNpmTasks('grunt-mocha-test');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -62,6 +72,10 @@ module.exports = function(grunt) {
   grunt.registerTask('build', [
     'concat',
     'uglify'
+  ]);
+
+  grunt.registerTask('test', [
+    'mochaTest'
   ]);
 
   grunt.registerTask('default', ['build', 'concurrent:dev']);
