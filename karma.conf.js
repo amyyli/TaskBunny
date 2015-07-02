@@ -10,12 +10,24 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['mocha', 'sinon-chai'],
+    frameworks: ['mocha', 'chai'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'client/dist/app.js'
+      // Source
+      'client/dist/angular/angular.js',
+      'client/dist/angular-route/angular-route.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+
+      // chai 
+      'node_modules/karma-chai/adapter.js',
+
+      'client/app/app.module.js',
+      'client/app/app.routes.js',
+      'client/app/components/**/*.js', 
+      'client/app/shared/**/*.js',
+      'test/client/**/*.js'
     ],
 
 
@@ -27,13 +39,19 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      'src/*.js': ['coverage']
+    },
+
+    coverageReport: {
+      type: 'text-summary',
+      dir: 'coverage'
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
 
 
     // web server port
@@ -55,11 +73,11 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['Chrome', 'PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
   });
 };
