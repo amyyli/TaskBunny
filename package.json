@@ -1,13 +1,13 @@
 {
-  "name": "chainsugar",
+  "name": "meat-and-colonel",
   "description": "Task Bunny",
   "version": "1.0.0",
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/chainsugar/chainsugar.git"
+    "url": "https://github.com/meat-and-colonel/TaskBunny.git"
   },
-  "homepage": "https://github.com/chainsugar/chainsugar",
+  "homepage": "https://github.com/meat-and-colonel/TaskBunny",
   "dependencies": {
     "body-parser": "^1.13.1",
     "connect-mongo": "^0.8.1",

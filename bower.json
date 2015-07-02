@@ -1,7 +1,7 @@
 {
-  "name": "chainsugar",
+  "name": "meat-and-colonel",
   "version": "0.0.0",
-  "homepage": "https://github.com/chainsugar/chainsugar",
+  "homepage": "https://github.com/meat-and-colonel/TaskBunny",
   "ignore": [
     "**/.*",
     "node_modules",
