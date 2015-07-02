@@ -41,5 +41,4 @@ describe('Routing', function () {
     expect($route.routes['/settings'].controller).to.equal('SettingsController');
     expect($route.routes['/settings'].templateUrl).to.equal('app/components/userSettings/template.html');
   });
-
 });
