@@ -22,12 +22,15 @@ describe('TasksController', function () {
     };
   }));
 
-
   afterEach(function() {
     $httpBackend.verifyNoOutstandingExpectation();
     $httpBackend.verifyNoOutstandingRequest();
   });
 
+  it('Should have a viewTask() method on the scope', function () {
+    createController();
+    expect($scope.viewTask).to.be.a('function');
+  });
 
 });
 
