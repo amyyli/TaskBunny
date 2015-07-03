@@ -8,10 +8,10 @@ module.exports = function(app, express) {
   // where use is the taskRunner, reviewed by taskOwner
   app.get('/api/reviews', isAuthenticated, function(req, res) {
 
-    db.Review.find({$and: [
+    db.Review.find({
       // find reviews of specific user (the task runner)
-      {taskRunner: {$eq: req.user._id}}
-    ]})
+      taskRunner: {$eq: req.user._id}
+    })
     .populate({
       path: 'taskRunner',
       select: 'name'
@@ -24,8 +24,8 @@ module.exports = function(app, express) {
       path: 'task',
       select: 'information'
     })
-    .populate('taskRunner taskOwner task') //?
-    // .lean() //?
+    // .populate('taskRunner taskOwner task')
+    .lean()
     .exec(function(err, reviews) {
       if (err) {
         res.status(500).end();
