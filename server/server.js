@@ -5,8 +5,6 @@ var path = require('path');
 var sessionAuth = require('./routes/auth');
 var tasksAPI = require('./routes/tasks');
 
-var gen = require('../utils/generate.js');
-
 var app = express();
 
 app.set('views', path.join(__dirname, "views"));
@@ -33,5 +31,3 @@ module.exports = app;
 app.listen(process.env.PORT || 8000);
 
 console.log('server listening...');
-
-//gen('user', {name: 'Test', phone: '8675309'});

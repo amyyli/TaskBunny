@@ -14,7 +14,10 @@ function generateRandom(modelName, attributes) {
         city: randomCityName()
       };
 
-      _.extend(user, attributes);
+      if (attributes) {
+        _.extend(user, attributes);
+      }
+
       console.log('Going to try and save: ', user);
 
       db.User.create(user, function(err){
