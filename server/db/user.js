@@ -16,6 +16,14 @@ var UserSchema = new mongoose.Schema({
   city: {
     type: String,
     default: 'San Francisco'
+  },
+  rating: {
+    type: String,
+    default: '* * * * *'
+  },
+  aboutMe: {
+    type: String,
+    default: 'About me big description About me big description About me big description About me big description About me big description About me big description About me big description About me big description About me big description'
   }
 });
 
