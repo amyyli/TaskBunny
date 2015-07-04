@@ -22,10 +22,17 @@ function dropCollection(modelName) {
 // Example: Delete all instances of users.
 // dropCollection('User');
 
-function populateConnection(modelName, number, attributes) {
+function populateCollection(modelName, number, attributes) {
   for (var i = 0; i < number; i++) {
     gen(modelName, attributes);
   }
 }
 
 // Example: Add 10 randomly generated users to the Users collection.
+// populateCollection('User', 10);
+
+module.exports = {
+  countCollection: countCollection,
+  dropCollection: dropCollection,
+  populateCollection: populateCollection
+};
