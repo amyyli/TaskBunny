@@ -91,6 +91,7 @@ module.exports = function(app) {
   app.get('/auth/profile/check', function(req, res, next){
     if(req.isAuthenticated()){
       res.status(200).send(req.user);
+      console.log('>>>', req.user);
     } else {
       res.status(401).end();
     }
@@ -120,6 +121,7 @@ module.exports = function(app) {
             user.preferredEmail = req.body.preferredEmail;
             user.phone = req.body.phone;
             user.city = req.body.city;
+            user.aboutMe = req.body.aboutMe;
 
             user.save(function(err){
               if(err){
