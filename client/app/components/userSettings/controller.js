@@ -9,6 +9,7 @@
 
     AuthService.check().then(function(response){
       $scope.user = response.data;
+      console.log(response)
     });
 
     $scope.save = function(){

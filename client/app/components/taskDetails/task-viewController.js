@@ -74,6 +74,10 @@ angular.module('trApp')
       });
     };
 
+    $scope.makeReview = function(){
+      
+    };
+
     reload(_id);
   };
 
