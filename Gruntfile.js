@@ -3,6 +3,18 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    concat_sourcemap: {
+      options: {
+        // Task-specific options go here.
+      },
+      your_target: {
+        // Target-specific file lists and/or options go here.
+        files: {
+          'client/dist/app.js': ['client/app/components/**/*.js', 'client/app/shared/**/*.js']
+        }
+      }
+    },
+
     mochaTest: {
       test: {
         options: {
@@ -67,6 +79,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-concat-sourcemap');
 
   //gets run on server deployment
   grunt.registerTask('build', [

@@ -11,7 +11,9 @@ angular.module('trApp')
       url: '/auth/profile/check',
     }).success(function(data, status, headers, config){
       $scope.user = data;
+      console.log($scope.user);
     });
+
   }
 
 })();
