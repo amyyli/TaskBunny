@@ -31,7 +31,8 @@ client/dist
 
 # secrets - local tokens, clientID and secret for OAuth2
 secrets/
+coverage/
 
 # tests
 
-test/
+tests/

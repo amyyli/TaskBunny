@@ -2,11 +2,17 @@
 
 > TaskBunny is a web application that connects people who have tasks to be done, with people willing to help them get them done.
 
-## Team
+## Original Team
 
-  - __Product Owner__: Bryan
-  - __Scrum Master__: Mokhtar
-  - __Development Team Members__: David, Bryan, Mokhtar
+  - __Product Owner__: Bryan Sayson
+  - __Scrum Master__: Mokhtar Naamani
+  - __Development Team Members__: David Chiang, Bryan Sayson, Mokhtar Naamani
+
+## Contributing Developers
+
+  - __Product Owner__: Cody Scholberg
+  - __Scrum Master__: Amy Li
+  - __Development Team Members__: Stephan Tabor, Tyler Travers, Dick Treichel
 
 ## Demo
 

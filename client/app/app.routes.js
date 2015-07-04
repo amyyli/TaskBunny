@@ -36,7 +36,7 @@
         })
         .when('/profile', {
             templateUrl: 'app/components/profile/profile.html',
-            controller: 'profileController'
+            controller: 'ProfileController'
         })
         .otherwise({redirectTo: '/'});
 

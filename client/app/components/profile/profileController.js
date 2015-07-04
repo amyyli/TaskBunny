@@ -2,24 +2,17 @@
 
 //load module
 angular.module('trApp')
-  .controller('profileController', ['$scope', '$location', 'AuthService', profileController]);
+  .controller('ProfileController', ['$scope', '$http', '$location', 'AuthService', ProfileController]);
 
-  function profileController($scope, AuthService) {
-    $scope.user = {};
 
-    AuthService.check().then(function(response){
-      $scope.user = response.data;
-      console.log($scope.user);
+  function ProfileController($scope, $http, AuthService) {
+    return $http({
+      method: 'GET',
+      url: '/auth/profile/check',
+    }).success(function(data, status, headers, config){
+      $scope.user = data;
     });
 
-
-    // $scope.name = '';
-    // $scope.age = 0;
-    // $scope.sex = 'yesPlease';
-    // $scope.carrots = ;
-    // $scope.review = 'haaaaaaaaaah bajiba jiba jaaaaaah';
-    // $scope.data = $scope.check();
-    // console.log($scope.data);
   }
 
 })();

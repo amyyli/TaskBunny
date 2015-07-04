@@ -7,6 +7,13 @@ var tasksAPI = require('./routes/tasks');
 
 var app = express();
 
+// Uncomment this block to clear all users from the
+// Users collection, then add 10 randomly generated users.
+// ----------------------------------------------
+// var dbUtils = require('../utils/db-utils.js');
+// dbUtils.dropCollection('User');
+// dbUtils.populateCollection('User', 10);
+
 app.set('views', path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
 app.use(partials());
