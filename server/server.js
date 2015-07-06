@@ -14,6 +14,11 @@ var app = express();
 // var dbUtils = require('../utils/db-utils.js');
 // dbUtils.dropCollection('User');
 // dbUtils.populateCollection('User', 10);
+// setTimeout(function() {
+//   dbUtils.getCollection('User', function(err, docs) {
+//     console.log(docs);
+//   });
+// }, 3000);
 
 app.set('views', path.join(__dirname, "views"));
 app.set('view engine', 'ejs');

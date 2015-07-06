@@ -18,19 +18,44 @@ function generateRandom(modelName, attributes) {
         _.extend(user, attributes);
       }
 
-      console.log('Going to try and save: ', user);
+      //console.log('Going to try and save: ', user);
 
       db.User.create(user, function(err){
         if(err) {
           console.log(err);
         }
       });
-      console.log('Created user!');
+      //console.log('Created user!');
 
       break;
 
     case 'task':
-      // TODO
+      var task = {
+        // owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        // // user._id of creator of task
+        // information: Object,
+        // // details of task (data from task creating form)
+        // applicants: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }], 
+        // // array of individuals (user._id, as a string) applied for task (see below)
+
+        // // without .populate()
+        // // [{
+        // //   "xyzabc"
+        // // }]
+
+        // // with .populate()
+        // // [{
+        // //   _id: user._id,
+        // //   name: user.name
+        // // }]
+
+        // assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+        // // user._id of user selected by owner to perform task
+        // complete: Boolean     
+        // // set to true by owner when task is complete
+      };
+
+
       break;  
     default:
       console.log('No model by the name of ' + modelName);

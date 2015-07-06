@@ -31,8 +31,13 @@ function populateCollection(modelName, number, attributes) {
 // Example: Add 10 randomly generated users to the Users collection.
 // populateCollection('User', 10);
 
+function getCollection(modelName, cb) {
+  db[modelName].find({}, cb);
+}
+
 module.exports = {
   countCollection: countCollection,
   dropCollection: dropCollection,
-  populateCollection: populateCollection
+  populateCollection: populateCollection,
+  getCollection: getCollection
 };
