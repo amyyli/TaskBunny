@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="ReviewFormController">
   <form class="form-horizontal animated fadeInDown" ng-submit='createReview()'>
     <fieldset>
       <legend class="form-header">Post a review</legend>
@@ -28,6 +28,13 @@ Specific Task Completed -->
           <input type="date" class="form-control" id="inputDate" placeholder="2011-01-13" ng-model="form.deadline">
         </div>
       </div> -->
+      <div class="form-group">
+        <div class="col-lg-10">
+<!--           Reviewing: {{ taskData.assignedTo.name }}<br>
+          For task: {{ taskData.information.name }}<br>
+          By: {{ taskData.owner.name }} -->
+        </div>
+      </div>
 
       <div class="form-group">
         <label for="inputCity" class="col-lg-2 control-label">Carrot Rating</label>
@@ -53,7 +60,7 @@ Specific Task Completed -->
       <div class="col-lg-10 col-lg-offset-2">
           <button type="reset" class="btn btn-default" ng-click='redirectCall()'>Cancel</button>
           <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+      </div>
     </fieldset>
   </form>
 </div>

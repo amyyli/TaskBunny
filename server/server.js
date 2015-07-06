@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var sessionAuth = require('./routes/auth');
 var tasksAPI = require('./routes/tasks');
+var reviewsAPI = require('./routes/reviews');
 
 var app = express();
 
@@ -24,6 +25,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 sessionAuth(app);
 
 tasksAPI(app, express);
+
+reviewsAPI(app, express);
 
 //static content
 app.use(express.static(path.join(__dirname, "../client")));
