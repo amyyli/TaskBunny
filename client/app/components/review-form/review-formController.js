@@ -2,9 +2,14 @@
 
   //load module
   angular.module('trApp')
-    .controller('ReviewFormController', ['$scope', '$location', 'ReviewService', ReviewFormController]);
+    .controller('ReviewFormController', ['$scope', '$location', '$http', '$routeParams', 'ReviewService', 'TaskService', ReviewFormController]);
 
-  function ReviewFormController($scope, $location, ReviewService){
+  function ReviewFormController($scope, $location, $http, $routeParams, ReviewService, TaskService){
+
+    // get task _id from $rootParams
+    var _id = $routeParams.id;
+    console.log("ID >>>", _id);
+
     $scope.form = {};
 
     // http POST on form submit
@@ -20,6 +25,14 @@
     $scope.redirectCall = function() {
       $location.path('/tasks');
     };
+
+    return $http({
+      method: 'GET',
+      url: '/api/tasks/' + _id,
+    }).success(function(data, status, headers, config){
+      $scope.taskData = data;
+      console.log('***task data*** ', data);
+    });
 
   };
 

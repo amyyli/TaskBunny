@@ -91,7 +91,6 @@ module.exports = function(app) {
   app.get('/auth/profile/check', function(req, res, next){
     if(req.isAuthenticated()){
       res.status(200).send(req.user);
-      console.log('>>>', req.user);
     } else {
       res.status(401).end();
     }
