@@ -18,19 +18,45 @@ function generateRandom(modelName, attributes) {
         _.extend(user, attributes);
       }
 
-      console.log('Going to try and save: ', user);
-
       db.User.create(user, function(err){
         if(err) {
           console.log(err);
         }
       });
-      console.log('Created user!');
 
       break;
 
     case 'task':
-      // TODO
+      db.User.find({}, function(err, users) {
+        var taskOwnerId = randomElement(users)['_id'];
+        var taskRunnerId = randomElement(users)['_id'];
+
+        var task = {
+          owner: taskOwnerId, // user._id of creator of task
+          information: {
+            name: randomTaskName(),
+            cost: _.random(1, 40),
+            deadline: "07-06-2015",
+            city: randomCityName(),
+            description: "ayyyy",
+            image: null
+          }, // details of task (data from task creating form)
+          applicants: [taskRunnerId], // array of individuals (user._id, as a string) applied for task 
+          assignedTo: null, // user._id of user selected by owner to perform task
+          complete: false // set to true by owner when task is complete
+        };
+
+        if (attributes) {
+          _.extend(task, attributes);
+        }
+
+        db.Task.create(task, function(err){
+          if(err) {
+            console.log(err);
+          }
+        });
+      });
+
       break;  
     default:
       console.log('No model by the name of ' + modelName);
@@ -70,6 +96,10 @@ function randomCityName() {
   return randomElement(cityNames);
 }
 
+function randomTaskName() {
+  return randomElement(taskNames);
+}
+
 var birdNames = [
   "Steller's Eider",
   "Spectacled Eider",
@@ -103,6 +133,17 @@ var cityNames = [
   "Honolulu",
   "Key West",
   "Seussland"
+];
+
+var taskNames = [
+  "Wash the dog",
+  "Park the car in the yard",
+  "Get me ice cream",
+  "Pick up my dry cleaning",
+  "Watch my nest",
+  "Do my hiring assessment",
+  "Write my code for me",
+  "Come up with a better task name"
 ];
 
 module.exports = generateRandom;

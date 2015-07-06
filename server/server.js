@@ -8,12 +8,19 @@ var reviewsAPI = require('./routes/reviews');
 
 var app = express();
 
-// Uncomment this block to clear all users from the
-// Users collection, then add 10 randomly generated users.
+// Randomly add 10 users and 5 tasks on load.
 // ----------------------------------------------
-// var dbUtils = require('../utils/db-utils.js');
-// dbUtils.dropCollection('User');
-// dbUtils.populateCollection('User', 10);
+if (process.env.NODE_ENV !== 'production') {
+  var dbUtils = require('../utils/db-utils.js');
+
+  dbUtils.dropCollection('User');
+  dbUtils.populateCollection('User', 10);
+  setTimeout(function() {
+    dbUtils.dropCollection('Task');
+    dbUtils.populateCollection('Task', 5);
+  }, 1000);
+}
+//-----------------------------------------------
 
 app.set('views', path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
