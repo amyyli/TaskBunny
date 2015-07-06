@@ -11,14 +11,14 @@ var app = express();
 // Uncomment this block to clear all users from the
 // Users collection, then add 10 randomly generated users.
 // ----------------------------------------------
-// var dbUtils = require('../utils/db-utils.js');
-// dbUtils.dropCollection('User');
-// dbUtils.populateCollection('User', 10);
-// setTimeout(function() {
-//   dbUtils.getCollection('User', function(err, docs) {
-//     console.log(docs);
-//   });
-// }, 3000);
+var dbUtils = require('../utils/db-utils.js');
+
+dbUtils.dropCollection('User');
+dbUtils.populateCollection('User', 10);
+setTimeout(function() {
+  dbUtils.dropCollection('Task');
+  dbUtils.populateCollection('Task', 5);
+}, 1000);
 
 app.set('views', path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
