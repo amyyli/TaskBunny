@@ -38,14 +38,15 @@ module.exports = function(app, express) {
 
   // create new review
   app.post('/api/reviews', isAuthenticated, function(req, res) {
-    var data = req.data;
+
+    var data = req.body;
 
     db.Review.create({
       taskRunner: new strToMongooseObjectId(data.runnerId),
       taskOwner: new strToMongooseObjectId(data.ownerId),
       task: new strToMongooseObjectId(data.taskId),
       carrots: data.carrots,
-      reviewBody: data.body,
+      reviewBody: data.reviewBody,
       current_date: new Date()
     }, function(err, review) {
       if (err) {
