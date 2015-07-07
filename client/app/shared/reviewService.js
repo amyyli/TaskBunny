@@ -23,8 +23,9 @@
         // returns an array of review related to the user
         return $http({
           method: 'GET',
-          url: '/api/myreviews',
+          url: '/api/reviews',
         }).success(function(reviews){
+          console.log(reviews); //TEMP
           return reviews;
         }).error(function(err){
           console.log(err);

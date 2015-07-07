@@ -1,0 +1,15 @@
+.carrot {
+  width: 60px;
+  height: auto;
+  margin-right: -25px;
+}
+
+.review-listing {
+  line-height: 35px;
+}
+
+.carrot-invis {
+  filter: gray; /* IE6-9 */
+  filter: grayscale(1); /* Firefox 35+ */
+  -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+}

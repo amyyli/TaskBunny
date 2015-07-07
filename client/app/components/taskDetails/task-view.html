@@ -19,7 +19,6 @@
     <div ng-show="task.assignedTo">
       <!-- assigned person -->
       <div>Task is assigned to: {{ task.assignedTo.name }}</div>
-      <button ng-show="task.isOwner && !task.complete" ng-click="makeReview()" class="btn btn-default">Review</button>
       <button ng-show="task.isOwner && !task.complete" ng-click="taskComplete()" class="btn btn-default">Set Complete</button>
     </div>
     <hr>
@@ -86,4 +85,4 @@
   </form>
 </div>
 
-<div ng-include="'app/components/review-form/review-form.html'"> </div>
+<div ng-show="task.isOwner && task.complete" ng-include="'app/components/review-form/review-form.html'"></div>
