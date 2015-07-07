@@ -10,16 +10,16 @@ var app = express();
 
 // Randomly add 10 users and 5 tasks on load.
 // ----------------------------------------------
-if (process.env.NODE_ENV !== 'production') {
-  var dbUtils = require('../utils/db-utils.js');
+// if (process.env.NODE_ENV !== 'production') {
+  // var dbUtils = require('../utils/db-utils.js');
 
-  dbUtils.dropCollection('User');
-  dbUtils.populateCollection('User', 10);
-  setTimeout(function() {
-    dbUtils.dropCollection('Task');
-    dbUtils.populateCollection('Task', 5);
-  }, 1000);
-}
+  // dbUtils.dropCollection('User');
+  // dbUtils.populateCollection('User', 10);
+  // setTimeout(function() {
+  //   dbUtils.dropCollection('Task');
+  //   dbUtils.populateCollection('Task', 5);
+  // }, 1000);
+// }
 //-----------------------------------------------
 
 app.set('views', path.join(__dirname, "views"));

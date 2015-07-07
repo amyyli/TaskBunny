@@ -22,15 +22,14 @@
       <h2><u>REVIEWS</u></h2>
     </div>
   </div>
-  <div class="row">
-    <div class="col-md-2">
-      * * * * *
-    </div>
-    <div class="col-md-3">
-      REVIEW WRITERRRRRRRRRR
+  <div class="row review-listing" ng-repeat="review in reviews">
+    <img class="col-md-2 carrot" ng-repeat="i in numCarrots(review.carrots) track by $index" ng-src="assets/img/carrot.png">
+    <img class="col-md-2 carrot carrot-invis" ng-repeat="i in numCarrots(5 - review.carrots) track by $index" ng-src="assets/img/carrot.png">
+    <div class="col-md-3" style="margin-left: 2em;">
+      {{ review.taskOwner.name }}
     </div>
     <div class="col-md-6">
-      REVIEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEW
+      {{ review.reviewBody }}
     </div>
   </div>
 </div>

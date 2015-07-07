@@ -8,7 +8,6 @@
 
     // get task _id from $rootParams
     var _id = $routeParams.id;
-    console.log("ID >>>", _id);
 
     $scope.form = {};
 
@@ -31,7 +30,6 @@
       url: '/api/tasks/' + _id,
     }).success(function(data, status, headers, config){
       $scope.taskData = data;
-      console.log('***task data*** ', data);
     });
 
   };
